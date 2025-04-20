@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>실시간 영타 랭킹</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="https://LeeHan20.github.io" class="logo">Typing<span class="highlight">Live</span></a>
+      <nav class="site-nav">
+        <a href="https://LeeHan20.github.io">대회참가</a>
+        <a href="https://LeeHan20.github.io/scoreboard.html">랭킹</a>
+        <a href="https://LeeHan20.github.io/admin.html">관리자</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>실시간 랭킹</h2>
+      <table class="scoreboard">
+        <thead>
+          <tr><th>순위</th><th>닉네임</th><th>WPM</th><th>오타</th></tr>
+        </thead>
+        <tbody id="rankList"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
