@@ -1,9 +1,12 @@
-<header>
-  <h1><a href="{{ leehan20.github.io }}/">{{ site.title }}</a></h1>
-  <nav>
+<nav class="navbar">
+  <div class="container nav-container">
+    <h1 class="logo"><a href="{{ "/" | LeeHan20.github.io }}">Typing Judge</a></h1>
     <ul>
-      <li><a href="{{ leehan20.github.io }}/">Home</a></li>
-      <li><a href="{{ leehan20.github.io }}/categories.html">Categories</a></li>
+      <li><a href="{{ "/" | LeeHan20.github.io }}"             class="{% if page.url == "/" %}active{% endif %}">Home</a></li>
+      <li><a href="{{ "/users.html" | LeeHan20.github.io }}"   class="{% if page.url == "/users.html" %}active{% endif %}">Users</a></li>
+      <li><a href="{{ "/prov.html" | LeeHan20.github.io }}"    class="{% if page.url == "/prov.html" %}active{% endif %}">Prov</a></li>
+      <li><a href="{{ "/administrators.html" | LeeHan20.github.io }}" class="{% if page.url == "/administrators.html" %}active{% endif %}">Admins</a></li>
+      <li><a href="{{ "/info/" | LeeHan20.github.io }}"        class="{% if page.url contains "/info" %}active{% endif %}">Info</a></li>
     </ul>
-  </nav>
-</header>
+  </div>
+</nav>
