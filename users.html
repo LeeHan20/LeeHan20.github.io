@@ -1,38 +1,31 @@
 <!DOCTYPE html>
-
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="users.html">Users</a></li>
-    <li><a href="prov.html">Prov</a></li>
-    <li><a href="administrators.html">Administrators</a></li>
-    <li><a href="info.html">Info</a></li>
-  </ul>
-</nav>
-
-<html lang="ko">
+<html lang="ko" data-page="users">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Users - 영타 대회 채점</title>
+  <title>Users - Typing Judge</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="users.html" class="active">Users</a></li>
-      <li><a href="prov.html">Prov</a></li>
-      <li><a href="administrators.html">Administrators</a></li>
-      <li><a href="info.html">Info</a></li>
-    </ul>
-  </nav>
+  <header class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo"><a href="index.html">Typing Judge</a></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="users.html" class="active">Users</a></li>
+          <li><a href="prov.html">Prov</a></li>
+          <li><a href="administrators.html">Admins</a></li>
+          <li><a href="info.html">Info</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <main>
-    <h1>Users</h1>
-    <p>참가자 목록, 기록, 순위 등을 표시할 수 있는 페이지입니다.</p>
+  <main class="container">
+    <h2>참가자 목록</h2>
+    <div id="usersList" class="grid-list"></div>
   </main>
-
   <script src="js/main.js"></script>
 </body>
 </html>
