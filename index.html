@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="users.html">Users</a></li>
-    <li><a href="prov.html">Prov</a></li>
-    <li><a href="administrators.html">Administrators</a></li>
-    <li><a href="info.html">Info</a></li>
-  </ul>
-</nav>
-
-<html lang="ko">
+<html lang="ko" data-page="home">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home - 영타 대회 채점</title>
+  <title>Home - Typing Judge</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- 네비게이션 -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="users.html">Users</a></li>
-      <li><a href="prov.html">Prov</a></li>
-      <li><a href="administrators.html">Administrators</a></li>
-      <li><a href="info.html">Info</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <h1>영타 대회 채점 사이트</h1>
-    <p>첫 방문 시 이름 설정, 출제자는 문제 문자열 설정, 참가자는 실시간 타이핑 채점.</p>
+  <header class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo">Typing Judge</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="prov.html">Prov</a></li>
+          <li><a href="administrators.html">Admins</a></li>
+          <li><a href="info.html">Info</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <h2>Welcome to Typing Judge</h2>
+      <p>영타 대회 채점을 위한 최적의 플랫폼입니다.</p>
+      <button id="startContestBtn" class="btn-primary">Get Started</button>
+    </section>
   </main>
-
   <script src="js/main.js"></script>
 </body>
 </html>
