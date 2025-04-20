@@ -1,74 +1,52 @@
+// 공통 네비게이션 로직 (현재 페이지 표시)
 document.addEventListener('DOMContentLoaded', () => {
-  // --- 요소 참조 ---
-  const nameModal      = document.getElementById('nameModal');
-  const nameInput      = document.getElementById('nameInput');
-  const saveNameBtn    = document.getElementById('saveNameBtn');
-  const greeting       = document.getElementById('greeting');
+  const page = document.documentElement.dataset.page;
+  document.querySelectorAll('.navbar a').forEach(a => {
+    if (a.getAttribute('href').includes(page)) a.classList.add('active');
+  });
 
-  const setterSection  = document.getElementById('setterSection');
-  const targetInput    = document.getElementById('targetInput');
-  const setTargetBtn   = document.getElementById('setTargetBtn');
-
-  const contestSection = document.getElementById('contestSection');
-  const targetText     = document.getElementById('targetText');
-  const userInput      = document.getElementById('userInput');
-  const highlighted    = document.getElementById('highlighted');
-  const passButton     = document.getElementById('passButton');
-
-  // --- 1) 이름 등록 ---
-  let userName = localStorage.getItem('userName');
-  if (!userName) {
-    nameModal.style.display = 'flex';
-  } else {
-    initUser(userName);
+  // 페이지별 분기
+  switch (page) {
+    case 'home': initHome(); break;
+    case 'users': initUsers(); break;
+    case 'prov': initProv(); break;
+    case 'administrators': initAdmins(); break;
+    case 'info': /* 별도 로직 없음 */ break;
   }
-
-  saveNameBtn.addEventListener('click', () => {
-    const name = nameInput.value.trim();
-    if (name) {
-      localStorage.setItem('userName', name);
-      nameModal.style.display = 'none';
-      initUser(name);
-    }
-  });
-
-  function initUser(name) {
-    greeting.textContent = `${name}님, 환영합니다!`;
-    setterSection.classList.remove('hidden');
-  }
-
-  // --- 2) 출제자가 문제 설정 ---
-  let target = '';
-  setTargetBtn.addEventListener('click', () => {
-    target = targetInput.value;
-    if (target) {
-      setterSection.classList.add('hidden');
-      contestSection.classList.remove('hidden');
-      targetText.textContent = target;
-      userInput.focus();
-    }
-  });
-
-  // --- 3) 참가자 입력 실시간 채점 ---
-  userInput.addEventListener('input', () => {
-    const val = userInput.value;
-    highlighted.innerHTML = '';
-    let allMatch = true;
-
-    for (let i = 0; i < val.length; i++) {
-      const span = document.createElement('span');
-      // 문자 비교
-      if (i < target.length && val[i] === target[i]) {
-        span.className = 'correct';
-      } else {
-        span.className = 'incorrect';
-        allMatch = false;
-      }
-      span.textContent = val[i];
-      highlighted.appendChild(span);
-    }
-    // 길이가 맞지 않으면 아직 완성 아님
-    if (val.length !== target.length) allMatch = false;
-    passButton.disabled = !allMatch;
-  });
 });
+
+// Home 페이지
+function initHome() {
+  document.getElementById('startContestBtn')
+    .addEventListener('click', () => location.href = 'prov.html');
+}
+
+// Users 페이지
+async function initUsers() {
+  const data = await fetch('js/data/users.json').then(r => r.json());
+  const container = document.getElementById('usersList');
+  data.forEach(u => {
+    const card = document.createElement('div'); card.className = 'card';
+    card.innerHTML = `<h3>${u.name}</h3><p>Score: ${u.score}</p>`;
+    container.appendChild(card);
+  });
+}
+
+// Prov 페이지
+async function initProv() {
+  const data = await fetch('js/data/prov.json').then(r => r.json());
+  const container = document.getElementById('provList');
+  data.forEach(p => {
+    const card = document.createElement('div'); card.className = 'card';
+    card.innerHTML = `<h3>${p.id}. ${p.title}</h3><p>${p.desc}</p>`;
+    container.appendChild(card);
+  });
+  document.getElementById('addProvBtn')
+    .addEventListener('click', () => alert('Problem 추가 기능 준비 중'));
+}
+
+// Admins 페이지
+async function initAdmins() {
+  await initUsers(); // 사용자 목록
+  await initProv();  // 문제 목록
+}
