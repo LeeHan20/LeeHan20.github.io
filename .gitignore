@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Node/npm (빌드 도구 사용 시)
+node_modules/
+.env
