@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="users.html">Users</a></li>
-    <li><a href="prov.html">Prov</a></li>
-    <li><a href="administrators.html">Administrators</a></li>
-    <li><a href="info.html">Info</a></li>
-  </ul>
-</nav>
-
-<html lang="ko">
+<html lang="ko" data-page="administrators">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Administrators - 영타 대회 채점</title>
+  <title>Administrators - Typing Judge</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="users.html">Users</a></li>
-      <li><a href="prov.html">Prov</a></li>
-      <li><a href="administrators.html" class="active">Administrators</a></li>
-      <li><a href="info.html">Info</a></li>
-    </ul>
-  </nav>
+  <header class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo"><a href="index.html">Typing Judge</a></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="prov.html">Prov</a></li>
+          <li><a href="administrators.html" class="active">Admins</a></li>
+          <li><a href="info.html">Info</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <main>
-    <h1>Administrators</h1>
-    <p>관리자용 대시보드, 사용자·문제 관리 기능 페이지입니다.</p>
+  <main class="container admin-dashboard">
+    <h2>관리자 대시보드</h2>
+    <section>
+      <h3>사용자 관리</h3>
+      <div id="adminUsersList" class="grid-list"></div>
+    </section>
+    <section>
+      <h3>문제 관리</h3>
+      <div id="adminProvList" class="grid-list"></div>
+    </section>
   </main>
-
   <script src="js/main.js"></script>
 </body>
 </html>
